@@ -10,16 +10,12 @@ dotenv.config();
 
 
 const app = express();
-app.use(cors({
-			origin: [
-				'https://datachron-assignment-mf20aw3xb-prabhu0414s-projects.vercel.app'
-			],
-	credentials: true
-}));
-
-
 const allowedOrigins = [
-  "https://datachron-assignment-mf20aw3xb-prabhu0414s-projects.vercel.app" // vercel preview deploys
+  'http://localhost:5174',
+  'https://datachron-assignment.onrender.com',
+  'https://datachron-assignment.vercel.app',
+  'https://datachron-assignment-git-main-prabhu0414s-projects.vercel.app',
+  'https://datachron-assignment-mf20aw3xb-prabhu0414s-projects.vercel.app'
 ];
 
 app.use(cors({
@@ -29,7 +25,7 @@ app.use(cors({
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
-    return callback(new Error("Not allowed by CORS"));
+    return callback(new Error('Not allowed by CORS'));
   },
   credentials: true,
 }));
