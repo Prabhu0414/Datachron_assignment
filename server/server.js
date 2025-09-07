@@ -11,10 +11,11 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-	origin: [
-		'http://localhost:5174',
-		'https://datachron-assignment.onrender.com'
-	],
+		origin: [
+			'http://localhost:5174',
+			'https://datachron-assignment.onrender.com',
+			'https://datachron-assignment.vercel.app'
+		],
 	credentials: true
 }));
 
