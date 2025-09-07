@@ -1,4 +1,4 @@
-const API = process.env.VITE_API_URL || "https://datachron-assignment-1.onrender.com";
+const API = process.env.VITE_API_URL || "https://datachron-assignment-final.onrender.com";
 
 // ----------------- Generic request function -----------------
 async function request(path, method = "GET", body = null, token = null) {
