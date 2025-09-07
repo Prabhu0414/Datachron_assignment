@@ -17,6 +17,24 @@ app.use(cors({
 	credentials: true
 }));
 
+
+const allowedOrigins = [
+  "https://datachron-assignment-mf20aw3xb-prabhu0414s-projects.vercel.app" // vercel preview deploys
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error("Not allowed by CORS"));
+  },
+  credentials: true,
+}));
+
+
 app.use(bodyParser.json());
 
 // connect db
