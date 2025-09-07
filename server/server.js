@@ -6,23 +6,27 @@ const connectDB = require('./config/db');
 
 dotenv.config();
 
-
 const app = express();
 
-app.use(express.json());
-app.use(cors());
+// CORS configuration
+app.use(cors({
+  origin: 'https://datachron-assignment-git-main-prabhu0414s-projects.vercel.app', // frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
-
+// Parse JSON bodies
 app.use(bodyParser.json());
+app.use(express.json());
 
-// connect db
+// Connect DB
 connectDB(process.env.MONGO_URI);
 
-// routes
+// Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/books', require('./routes/books'));
 
-// basic health
+// Health check
 app.get('/', (req, res) => res.send({ message: 'Library API running' }));
 
 const PORT = process.env.PORT || 5000;
