@@ -10,13 +10,7 @@ dotenv.config();
 
 
 const app = express();
-const allowedOrigins = [
-  'http://localhost:5174',
-  'https://datachron-assignment.onrender.com',
-  'https://datachron-assignment.vercel.app',
-  'https://datachron-assignment-git-main-prabhu0414s-projects.vercel.app',
-  'https://datachron-assignment-mf20aw3xb-prabhu0414s-projects.vercel.app'
-];
+;
 
 app.use(cors({
   origin: function (origin, callback) {
